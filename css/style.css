@@ -1,0 +1,146 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Tahoma, sans-serif;
+}
+
+.slider-container{
+    margin: 10px auto;
+    width:800px;
+    max-width: 100%;
+    height: 450px;
+    position: relative;
+    justify-content: center;
+}
+.slider-container img{
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s;
+    z-index: 1;
+    width:800px;
+    max-width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
+.slider-container img.active{
+    opacity: 1;
+}
+.slider-container .slide-number{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background-color: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 5px;
+    font-size: 20px;
+    z-index: 2;
+    border-radius: 6px;
+}
+.slider-controls{
+    width: 800px;
+    text-align: center;
+    margin: auto;
+    overflow: hidden;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    max-width: 100%;
+}
+.slider-controls .prev , 
+.slider-controls .next{
+    background-color: #009688;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 5px;
+    user-select: none;
+    width: 20%;
+}
+
+.slider-controls .prev{
+    float: left;
+}
+
+.slider-controls .next{
+    float: right;
+}
+.slider-controls .next.disabled ,
+.slider-controls .prev.disabled {
+    background-color: rgba(0,150,136,0.5);
+    cursor:no-drop ;
+}
+
+.slider-controls .indicators{
+   
+    width: 60%;
+    float: left;
+}
+
+.slider-controls .indicators ul{
+    list-style: none;
+    margin: 0;
+    text-align: center;
+}
+
+.slider-controls .indicators ul li{
+    display: inline-block;
+    background-color: #f6f6f6;
+    color: #333;
+    font-weight: bold;
+    height: 28px;
+    width: 28px;
+    border-radius: 4px;
+    margin: 0 2px;
+    line-height: 28px;
+    cursor: pointer;
+}
+
+.slider-controls .indicators ul li.active{
+    background-color: #009688;
+    color: #fff;
+}
+
+/* For medium devices (tablets) */
+@media (max-width: 768px) {
+    .slider-container {
+      max-width: 90%; 
+    }
+  
+    .prev, .next {
+      font-size: 14px; 
+      padding: 8px;
+    }
+  
+    /* You may also want to reduce the size of the images */
+    .slider-container img {
+      max-height: 400px; 
+    }
+  }
+  
+  /* For small devices (phones) */
+  @media (max-width: 480px) {
+    .slider-container {
+      max-width: 100%; 
+    }
+  
+    .prev, .next {
+      font-size: 12px; 
+      padding: 6px;
+      }
+    
+  
+    .slider-controls {
+      margin-top: 0;
+    }
+  
+    .slider-container img {
+      max-height: 450px;
+    }
+  }
+  
